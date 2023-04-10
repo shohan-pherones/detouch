@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detouch</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header
+      class="container mx-auto px-5 md:px-0 flex justify-between items-center h-[5rem]"
+    >
+      <div class="logo">
+        <h2 class="text-2xl font-bold uppercase">Detouch</h2>
+      </div>
+
+      <nav class="nav-links">
+        <ul class="flex gap-5 uppercase">
+          <li><a href="#" class="hover:underline">Home</a></li>
+          <li><a href="#" class="hover:underline">Shop</a></li>
+          <li><a href="#" class="hover:underline">Manage Orders</a></li>
+          <li><a href="#" class="hover:underline">About</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-links-right flex gap-5">
+        <button class="cart-btn relative">
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+              />
+            </svg>
+          </span>
+          <span
+            class="cart-counter absolute -right-1 -bottom-1 bg-black h-4 w-4 rounded-full text-white flex justify-center items-center text-xs font-medium"
+            >0</span
+          >
+        </button>
+        <button class="toggle-btn lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div class="slider relative w-screen h-[calc(100vh-5rem)]">
+        <div
+          class="slide absolute w-full h-full top-0 left-0 opacity-0 duration-1000"
+        >
+          <img
+            class="w-full h-full object-fit"
+            src="https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="image 1"
+          />
+        </div>
+        <div
+          class="slide active absolute w-full h-full top-0 left-0 opacity-0 duration-1000"
+        >
+          <img
+            class="w-full h-full object-fit"
+            src="https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="image 2"
+          />
+        </div>
+        <div
+          class="slide active absolute w-full h-full top-0 left-0 opacity-0 duration-1000"
+        >
+          <img
+            class="w-full h-full object-fit"
+            src="https://images.pexels.com/photos/2127733/pexels-photo-2127733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="image 3"
+          />
+        </div>
+        <div
+          class="controls absolute left-[50%] -translate-x-[50%] bottom-20 flex gap-10"
+        >
+          <button
+            class="prev bg-cyan-500 w-16 h-12 flex justify-center items-center border border-cyan-50 text-cyan-50 hover:bg-gray-700 hover:border-gray-50 hover:text-gray-50 duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>
+          </button>
+          <button
+            class="next bg-cyan-500 w-16 h-12 flex justify-center items-center border border-cyan-50 text-cyan-50 hover:bg-gray-700 hover:border-gray-50 hover:text-gray-50 duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
