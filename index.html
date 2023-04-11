@@ -70,39 +70,36 @@
     </header>
 
     <main>
-      <div class="slider relative w-screen h-[calc(100vh-5rem)]">
-        <div
-          class="slide absolute w-full h-full top-0 left-0 opacity-0 duration-1000"
-        >
-          <img
-            class="w-full h-full object-fit"
-            src="https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="image 1"
-          />
+      <section class="slider h-[calc(100vh-5rem)] relative overflow-x-hidden">
+        <div class="frame flex h-full w-[300vw] duration-1000">
+          <div class="slide w-screen">
+            <img
+              class="w-full h-full object-cover"
+              src="https://images.pexels.com/photos/1034859/pexels-photo-1034859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Woman in Black Full-zip Jacket"
+            />
+          </div>
+          <div class="slide w-screen">
+            <img
+              class="w-full h-full object-cover"
+              src="https://images.pexels.com/photos/928000/pexels-photo-928000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Woman Holding Bag Near Buildings"
+            />
+          </div>
+          <div class="slide w-screen">
+            <img
+              class="w-full h-full object-cover"
+              src="https://images.pexels.com/photos/242829/pexels-photo-242829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Man Riding on Motorcycle"
+            />
+          </div>
         </div>
+
         <div
-          class="slide active absolute w-full h-full top-0 left-0 opacity-0 duration-1000"
-        >
-          <img
-            class="w-full h-full object-fit"
-            src="https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="image 2"
-          />
-        </div>
-        <div
-          class="slide active absolute w-full h-full top-0 left-0 opacity-0 duration-1000"
-        >
-          <img
-            class="w-full h-full object-fit"
-            src="https://images.pexels.com/photos/2127733/pexels-photo-2127733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="image 3"
-          />
-        </div>
-        <div
-          class="controls absolute left-[50%] -translate-x-[50%] bottom-20 flex gap-10"
+          class="btns absolute left-[50%] -translate-x-[50%] bottom-32 flex gap-10"
         >
           <button
-            class="prev bg-cyan-500 w-16 h-12 flex justify-center items-center border border-cyan-50 text-cyan-50 hover:bg-gray-700 hover:border-gray-50 hover:text-gray-50 duration-300"
+            class="btn prev-btn bg-sky-900 h-12 w-16 flex justify-center items-center text-sky-50 border border-sky-300 hover:bg-gray-900 hover:border-gray-300 duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +117,7 @@
             </svg>
           </button>
           <button
-            class="next bg-cyan-500 w-16 h-12 flex justify-center items-center border border-cyan-50 text-cyan-50 hover:bg-gray-700 hover:border-gray-50 hover:text-gray-50 duration-300"
+            class="btn next-btn bg-sky-900 h-12 w-16 flex justify-center items-center text-sky-50 border border-sky-300 hover:bg-gray-900 hover:border-gray-300 duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -138,8 +135,56 @@
             </svg>
           </button>
         </div>
-      </div>
+      </section>
+
+      <section
+        class="products-section container mx-auto px-5 md:px-0 py-20 flex flex-col gap-10"
+      >
+        <h2
+          class="section-title text-center uppercase text-2xl tracking-widest font-semibold"
+        >
+          Browse all products
+        </h2>
+
+        <div class="products-wrapper flex gap-10 flex-wrap justify-center">
+          <!-- MULTIPLE PRODUCTS GOES HERE -->
+          <div
+            class="product-card w-[20rem] rounded-lg shadow-md overflow-hidden"
+          >
+            <div class="product-img w-full h-[20rem] overflow-hidden">
+              <img
+                class="w-full h-full object-cover"
+                src="https://www.countryboylifestyle.com/UserPanel/UserPanel/Uploads/613637847934439788078_small_MI.jpg"
+                alt="Men Shirt"
+              />
+            </div>
+
+            <div class="product-texts p-5 flex flex-col gap-3">
+              <span
+                class="product-category uppercase text-xs font-semibold tracking-widest text-sky-500"
+                >Men</span
+              >
+              <h3 class="product-title text-2xl h-[4rem]">
+                Men summer shirt awesome cloth
+              </h3>
+              <p class="product-description text-gray-500 h-[4.5rem]">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Delectus, corporis.
+              </p>
+              <div class="product-lower flex justify-between items-center">
+                <p class="product-price text-2xl text-rose-500">$100</p>
+                <button
+                  class="btn add-to-cart-btn bg-sky-500 text-sky-50 py-2 px-5 rounded-md text-medium hover:bg-sky-600 duration-300"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
     <footer></footer>
   </body>
 </html>

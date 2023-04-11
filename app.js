@@ -1,29 +1,25 @@
-const slides = document.querySelectorAll(".slide");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
+const frame = document.querySelector(".frame");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
 
 let curSlide = 0;
 
-function showSlide(index) {
-  slides[curSlide].classList.remove("active"); // hide current side
-  curSlide = index;
-  slides[curSlide].classList.add("active"); // show new slide
-}
-
 prevBtn.addEventListener("click", () => {
-  if (curSlide > 0) {
-    showSlide(curSlide - 1);
+  if (curSlide === 0) {
+    curSlide = 2;
+    frame.style.transform = `translateX(-200vw)`;
   } else {
-    showSlide(slides.length - 1);
+    curSlide--;
+    frame.style.transform = `translateX(-${100 * curSlide}vw)`;
   }
 });
 
 nextBtn.addEventListener("click", () => {
-  if (curSlide !== slides.length - 1) {
-    showSlide(curSlide + 1);
+  if (curSlide === 2) {
+    curSlide = 0;
+    frame.style.transform = `translateX(0vw)`;
   } else {
-    showSlide(0);
+    curSlide++;
+    frame.style.transform = `translateX(-${100 * curSlide}vw)`;
   }
 });
-
-showSlide(curSlide);
