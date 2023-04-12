@@ -11,26 +11,50 @@
   </head>
   <body>
     <header
-      class="container mx-auto px-5 md:px-0 flex justify-between items-center h-[5rem]"
+      class="h-[5rem] bg-white/80 border-b backdrop-blur-xl flex justify-center items-center"
     >
-      <div class="logo">
-        <h2 class="text-2xl font-bold uppercase">Detouch</h2>
-      </div>
+      <div
+        class="container mx-auto px-5 md:px-0 flex justify-between items-center"
+      >
+        <div class="logo">
+          <h2 class="text-2xl font-bold uppercase">Detouch</h2>
+        </div>
 
-      <nav class="nav-links">
-        <ul class="flex gap-5 uppercase">
-          <li><a href="#" class="hover:underline">Home</a></li>
-          <li><a href="#" class="hover:underline">Shop</a></li>
-          <li><a href="#" class="hover:underline">Manage Orders</a></li>
-          <li><a href="#" class="hover:underline">About</a></li>
-          <li><a href="#" class="hover:underline">Contact</a></li>
-        </ul>
-      </nav>
+        <nav class="nav-links">
+          <ul class="flex gap-5 uppercase">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#" class="hover:underline">Shop</a></li>
+            <li><a href="#" class="hover:underline">Manage Orders</a></li>
+            <li><a href="#" class="hover:underline">About</a></li>
+            <li><a href="#" class="hover:underline">Contact</a></li>
+          </ul>
+        </nav>
 
-      <div class="nav-links-right flex gap-5">
-        <button class="cart-btn relative">
-          <span
-            ><svg
+        <div class="nav-links-right flex gap-5">
+          <button class="cart-btn relative">
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                />
+              </svg>
+            </span>
+            <span
+              class="cart-counter absolute -right-1 -bottom-1 bg-black h-4 w-4 rounded-full text-white flex justify-center items-center text-xs font-medium"
+              >0</span
+            >
+          </button>
+          <button class="toggle-btn lg:hidden">
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -41,31 +65,11 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
               />
             </svg>
-          </span>
-          <span
-            class="cart-counter absolute -right-1 -bottom-1 bg-black h-4 w-4 rounded-full text-white flex justify-center items-center text-xs font-medium"
-            >0</span
-          >
-        </button>
-        <button class="toggle-btn lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
-            />
-          </svg>
-        </button>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -137,6 +141,7 @@
         </div>
       </section>
 
+      <!-- ALL PRODUCTS -->
       <section
         class="products-section container mx-auto px-5 md:px-0 py-20 flex flex-col gap-10"
       >
@@ -150,8 +155,57 @@
           <!-- MULTIPLE PRODUCTS GOES HERE -->
         </div>
       </section>
+
+      <!-- MEN PRODUCTS -->
+      <section
+        class="products-section container mx-auto px-5 md:px-0 py-20 flex flex-col gap-10"
+      >
+        <h2
+          class="section-title text-center uppercase text-2xl tracking-widest font-semibold"
+        >
+          Browse men products
+        </h2>
+
+        <div class="men-products-wrapper flex gap-10 flex-wrap justify-center">
+          <!-- MULTIPLE PRODUCTS GOES HERE -->
+        </div>
+      </section>
+
+      <!-- WOMEN PRODUCTS -->
+      <section
+        class="products-section container mx-auto px-5 md:px-0 py-20 flex flex-col gap-10"
+      >
+        <h2
+          class="section-title text-center uppercase text-2xl tracking-widest font-semibold"
+        >
+          Browse women products
+        </h2>
+
+        <div
+          class="women-products-wrapper flex gap-10 flex-wrap justify-center"
+        >
+          <!-- MULTIPLE PRODUCTS GOES HERE -->
+        </div>
+      </section>
+
+      <!-- KIDS PRODUCTS -->
+      <section
+        class="products-section container mx-auto px-5 md:px-0 py-20 flex flex-col gap-10"
+      >
+        <h2
+          class="section-title text-center uppercase text-2xl tracking-widest font-semibold"
+        >
+          Browse kids products
+        </h2>
+
+        <div class="kids-products-wrapper flex gap-10 flex-wrap justify-center">
+          <!-- MULTIPLE PRODUCTS GOES HERE -->
+        </div>
+      </section>
     </main>
 
-    <footer></footer>
+    <footer class="py-20 text-center text-gray-500">
+      <p>&copy; 2023 Detouch Fashion. All rights reserved.</p>
+    </footer>
   </body>
 </html>

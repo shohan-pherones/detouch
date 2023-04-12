@@ -3,6 +3,9 @@ const frame = document.querySelector(".frame");
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 const productsWrapper = document.querySelector(".products-wrapper");
+const menProductsWrapper = document.querySelector(".men-products-wrapper");
+const womenProductsWrapper = document.querySelector(".women-products-wrapper");
+const kidsProductsWrapper = document.querySelector(".kids-products-wrapper");
 
 /* PRODUCTS */
 const productsData = [
@@ -143,7 +146,8 @@ nextBtn.addEventListener("click", () => {
 });
 
 /* PRODUCTS LISTING */
-productsData.forEach((product) => {
+
+function generateTemplate(product) {
   const template = `
       <div class="product-card w-[20rem] rounded-lg shadow-md overflow-hidden">
         <div class="product-img w-full h-[20rem] overflow-hidden">
@@ -177,5 +181,35 @@ productsData.forEach((product) => {
       </div>
   `;
 
+  return template;
+}
+
+/* ALL PRODUCTS */
+productsData.forEach((product) => {
+  const template = generateTemplate(product);
   productsWrapper.insertAdjacentHTML("afterbegin", template);
 });
+
+/* MEN PRODUCTS */
+productsData
+  .filter((product) => product.category === "Men")
+  .forEach((product) => {
+    const template = generateTemplate(product);
+    menProductsWrapper.insertAdjacentHTML("afterbegin", template);
+  });
+
+/* WOMEN PRODUCTS */
+productsData
+  .filter((pr) => pr.category === "Women")
+  .forEach((pr) => {
+    const template = generateTemplate(pr);
+    womenProductsWrapper.insertAdjacentHTML("afterbegin", template);
+  });
+
+/* KIDS PRODUCTS */
+productsData
+  .filter((product) => product.category === "Kids")
+  .forEach((product) => {
+    const template = generateTemplate(product);
+    kidsProductsWrapper.insertAdjacentHTML("afterbegin", template);
+  });
