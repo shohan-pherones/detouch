@@ -6,6 +6,8 @@ const productsWrapper = document.querySelector(".products-wrapper");
 const menProductsWrapper = document.querySelector(".men-products-wrapper");
 const womenProductsWrapper = document.querySelector(".women-products-wrapper");
 const kidsProductsWrapper = document.querySelector(".kids-products-wrapper");
+const header = document.querySelector("header");
+const slider = document.querySelector(".slider");
 
 /* PRODUCTS */
 const productsData = [
@@ -213,3 +215,26 @@ productsData
     const template = generateTemplate(product);
     kidsProductsWrapper.insertAdjacentHTML("afterbegin", template);
   });
+
+/* NAVABR FIXED */
+const headerHeight = header.getBoundingClientRect().height;
+
+function fixedHeader(entries) {
+  const entry = entries[0];
+
+  if (!entry.isIntersecting) {
+    header.classList.add("myNavFixed");
+    slider.classList.add(`mt-[${headerHeight}px]`); // mt-[80px]
+  } else {
+    header.classList.remove("myNavFixed");
+    slider.classList.remove(`mt-[${headerHeight}px]`);
+  }
+}
+
+const sliderObserver = new IntersectionObserver(fixedHeader, {
+  root: null, // viewport
+  threshold: 0,
+  rootMargin: `-${headerHeight}px`, // -80px
+});
+
+sliderObserver.observe(slider);
