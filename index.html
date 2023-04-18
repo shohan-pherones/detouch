@@ -202,6 +202,38 @@
           <!-- MULTIPLE PRODUCTS GOES HERE -->
         </div>
       </section>
+
+      <!-- CART MODAL -->
+      <div
+        class="cart-modal bg-white/80 fixed right-0 top-0 z-[1001] h-screen w-full lg:w-2/5 backdrop-blur-xl shadow-2xl border-l-2 p-10 hidden"
+      >
+        <div
+          class="cart-header flex justify-between items-center border-b pb-5"
+        >
+          <h2 class="text-3xl">
+            Your cart: <span class="inner-cart-no">0</span>
+          </h2>
+          <button class="close-cart-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="cart-body">
+          <!-- MULTIPLE CART ITEMS GOES HERE -->
+        </div>
+      </div>
     </main>
 
     <footer class="py-20 text-center text-gray-500">

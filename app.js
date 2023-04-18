@@ -8,6 +8,15 @@ const womenProductsWrapper = document.querySelector(".women-products-wrapper");
 const kidsProductsWrapper = document.querySelector(".kids-products-wrapper");
 const header = document.querySelector("header");
 const slider = document.querySelector(".slider");
+const cartBtn = document.querySelector(".cart-btn");
+const cartCloseBtn = document.querySelector(".close-cart-btn");
+const cartModal = document.querySelector(".cart-modal");
+const productsSections = document.querySelectorAll(".products-section");
+const cartBody = document.querySelector(".cart-body");
+const innerCartNum = document.querySelector(".inner-cart-no");
+const navCartNum = document.querySelector(".cart-counter");
+
+let CART_ITEM_COUNT = 0;
 
 /* PRODUCTS */
 const productsData = [
@@ -238,3 +247,42 @@ const sliderObserver = new IntersectionObserver(fixedHeader, {
 });
 
 sliderObserver.observe(slider);
+
+/* CART BUTTON HANDLER */
+cartBtn.addEventListener("click", () => {
+  cartModal.classList.remove("hidden");
+});
+
+cartCloseBtn.addEventListener("click", () => {
+  cartModal.classList.add("hidden");
+});
+
+/* ADD TO CART */
+productsSections.forEach((section) => {
+  section.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("add-to-cart-btn")) {
+      return null;
+    }
+
+    // showing cart item num
+    CART_ITEM_COUNT += 1;
+    innerCartNum.textContent = CART_ITEM_COUNT;
+    navCartNum.textContent = CART_ITEM_COUNT;
+
+    // showing cart item body
+    const productId = e.target.dataset.id;
+    const cartItem = productsData.find((product) => product.id === +productId);
+    const cartTemplate = cartTemplateMaking(cartItem);
+    cartBody.insertAdjacentHTML("afterbegin", cartTemplate);
+  });
+});
+
+function cartTemplateMaking(item) {
+  const template = `
+    <div class="cart-item">
+      <h3>${item.title}</h3>
+    </div>
+  `;
+
+  return template;
+}
