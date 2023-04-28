@@ -15,11 +15,13 @@ const productsSections = document.querySelectorAll(".products-section");
 const cartBody = document.querySelector(".cart-body");
 const innerCartNum = document.querySelector(".inner-cart-no");
 const navCartNum = document.querySelector(".cart-counter");
+const subtotalEl = document.querySelector(".subtotal-price");
+const subtotalContainer = document.querySelector(".subtotal-container");
 
 let CART_ITEM_COUNT = 0;
 
 /* PRODUCTS */
-const productsData = [
+let productsData = [
   {
     id: 1,
     title: "Men's Casual Button-Up Shirt",
@@ -157,7 +159,6 @@ nextBtn.addEventListener("click", () => {
 });
 
 /* PRODUCTS LISTING */
-
 function generateTemplate(product) {
   const template = `
       <div class="product-card w-[20rem] rounded-lg shadow-md overflow-hidden">
@@ -264,23 +265,64 @@ productsSections.forEach((section) => {
       return null;
     }
 
-    // showing cart item num
-    CART_ITEM_COUNT += 1;
-    innerCartNum.textContent = CART_ITEM_COUNT;
-    navCartNum.textContent = CART_ITEM_COUNT;
+    const productId = e.target.dataset.id; // find product id
+    const cartItem = productsData.find((product) => product.id === +productId); // find cart item
 
-    // showing cart item body
-    const productId = e.target.dataset.id;
-    const cartItem = productsData.find((product) => product.id === +productId);
-    const cartTemplate = cartTemplateMaking(cartItem);
-    cartBody.insertAdjacentHTML("afterbegin", cartTemplate);
+    if (cartItem) {
+      // increase cart quantity
+      CART_ITEM_COUNT += 1;
+      innerCartNum.textContent = CART_ITEM_COUNT;
+      navCartNum.textContent = CART_ITEM_COUNT;
+
+      // show cart template
+      const cartTemplate = cartTemplateMaking(cartItem);
+      cartBody.insertAdjacentHTML("afterbegin", cartTemplate);
+
+      // remove this cart item
+      productsData = productsData.filter(
+        (product) => product.id !== +productId
+      );
+
+      // calculate subtotal
+      const cartItemsEl = cartBody.querySelectorAll(".cart-item");
+
+      const prices = [];
+
+      cartItemsEl.forEach((item) => {
+        const price = +item.dataset.price;
+        prices.push(price);
+      });
+
+      const subtotal = prices.reduce((acc, item) => (acc = acc + item), 0);
+      const fixedSubtotal = +subtotal.toFixed(2);
+
+      subtotalContainer.classList.remove("hidden");
+      subtotalEl.textContent = fixedSubtotal.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+      });
+    }
+
+    if (!cartItem) {
+      alert("This product already added in the cart.");
+    }
   });
 });
 
 function cartTemplateMaking(item) {
   const template = `
-    <div class="cart-item">
-      <h3>${item.title}</h3>
+    <div class="cart-item grid grid-cols-12 gap-5 border-b pb-5" data-price=${
+      item.price
+    }>
+      <div class="item-img col-span-2 h-16 w-16 overflow-hidden">
+        <img src="${item.image}" class="w-full h-full object-cover"/>
+      </div>
+      <h3 class="col-span-4">${item.title}</h3>
+      <p class="col-span-4">${item.price.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+      })}</p>
+      <btn class="col-span-2 cursor-pointer hover:text-rose-500">Remove</btn>
     </div>
   `;
 
